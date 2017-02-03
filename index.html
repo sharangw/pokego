@@ -4,6 +4,29 @@
 <meta charset="UTF-8">
 <title>Poke Go</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- <link href="styles/table.css" rel="stylesheet"/> -->
+<style>
+body { background: #04c966;
+}
+table {
+    border-collapse: collapse;    
+    display: inline-table;
+}
+
+th, td {
+    padding: 5px;
+    text-align: left;
+    outline: 2px solid blue;
+    border-bottom: 1px solid #ddd;
+}
+
+tr:hover{background-color:#efc507}
+
+p, h2, h4 {
+    display: inline;
+}
+
+</style>
 </head>
 <body>
 
@@ -14,14 +37,152 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>  
 
 <!-- Custom JavaScript -->
-<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="scripts/app.js"></script>
+
+<marquee behavior="scroll" direction="left" width="100%" bgcolor="#29bcf2">The Pocket Monsters
+	<img src="model/10.png">	
+	<img src="model/19.png">
+	<img src="model/100.png">
+	<img src="model/25.png">
+	<img src="model/52.png">
+	<img src="model/54.png">
+	<img src="model/35.png">	
+	<img src="model/58.png">
+	<img src="model/16.png">
+	<img src="model/73.png">
+	<img src="model/76.png">
+	<img src="model/107.png">
+	<img src="model/94.png">
+	<img src="model/150.png">
+	<img src="model/6.png">
+	
+</marquee> 
+
+<br/><br/>
 
 <div class = "container">
-	<input id="userInput" type="text" />
-	<button id="submitButton">I Choose You!</button>
+	<input id="input1" type="text">&nbsp;Player 1</input>
+	<button id="submitButton1">I Choose You!</button>
 </div>
 
-<h1 id="pokeName"></h1>
+<div class = "container">
+	<input id="input2" type="text">&nbsp;Player 2</input>
+	<button id="submitButton2">I Choose You!</button>
+</div>
+
+<br/>
+
+<div class ="container">
+	<h4>Player 1 chooses </h4>
+	<h4 id="poke1"></h4>
+	
+		<br/></br>
+	
+	<table>
+     	<thead>
+          <tr>
+               <th>&nbsp;Id&nbsp;</th>
+               <th>&nbsp;Ability&nbsp;</th>
+           </tr>
+    	 </thead>
+      <tbody id="tbody1">
+      </tbody>
+	</table>
+	
+	<br/></br>
+	
+	<h4>Player 2 chooses </h4>
+	<h4 id="poke2"></h4>
+	
+	<br/></br>
+	
+	<table>
+      <thead>
+          <tr>
+               <th>&nbsp;Id&nbsp;</th>
+               <th>&nbsp;Ability&nbsp;</th>
+           </tr>
+      </thead>
+     <tbody id="tbody2">
+     </tbody>
+	</table>
+	
+</div>
+
+<br/>
+
+<div class = "container">
+	<input id="randomAb1" type="text">&nbsp;Player 1, choose the ability you want:</input>
+	<button id="abilButton1">GOOO 1</button>
+</div>
+
+<div class = "container">
+	<input id="randomAb2" type="text">&nbsp;Player 2, choose the ability you want:</input>
+	<button id="abilButton2">GOOO 2</button>
+</div>
+
+<br/>
+
+<div class = "container">
+	<p id="poke11"></p>
+	<p>will use</p>	
+	<p id="ab1"></p>
+</div>
+
+<div class = "container">
+	<p id="poke22"></p>
+	<p >will use</p>
+	<p id="ab2"></p>
+</div>
+
+<br/>
+
+<div class = "container">	
+	<button id="battleButton">Battle!!!</button>
+	
+	<br/><br/>
+	
+	<p>Player 1, your moves:</p>
+	<ul style="list-style-type: none">
+		<li id="m0"></li>
+		<li id="m1"></li>
+		<li id="m2"></li>
+		<li id="m3"></li>
+  	</ul>
+  	
+
+	<p>Player 2, your moves:</p>
+	<ul style="list-style-type: none">
+		<li id="m4"></li>
+		<li id="m5"></li>
+		<li id="m6"></li>
+		<li id="m7"></li>
+	</ul>
+	
+	<div id="poke1pic"></div>
+	<h4>versus</h4>
+	<div id="poke2pic"></div>
+	
+	
+</div>
+	
+<br/>
+
+
+		
+<!-- <div class = "container">
+	<h2 id="pokeWinner"></h2>
+	<h2 onclick="this.innerHTML=' is champion'">Who won?!</h2>
+</div> -->
+
+
+<h1 onclick="changeText(this)">Pokemon</h1>
+
+<script>
+function changeText(id) {
+    id.innerHTML = "Go";
+}
+</script>
 
 </body>
 </html>
