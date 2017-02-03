@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 $(document).ready(function() { // called after DOM is done being built
 	
 	var name1 = "", name2 = "";
@@ -14,7 +10,7 @@ $(document).ready(function() { // called after DOM is done being built
 		
 		$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				name1 = data.name;
 				$("#poke1").html(name1);
@@ -23,7 +19,7 @@ $(document).ready(function() { // called after DOM is done being built
 		
 		$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {
 				
 				var abilArray = data.abilities;
@@ -50,7 +46,7 @@ $(document).ready(function() { // called after DOM is done being built
 		
 		$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {	
 				name2 = data.name;
 				$("#poke2").html(name2);
@@ -59,7 +55,7 @@ $(document).ready(function() { // called after DOM is done being built
 		
 		$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {
 				
 				var abilArray = data.abilities;
@@ -87,7 +83,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				ab1 = data.abilities[randomAb1].ability.name;
 				$("#poke11").html(name1);
@@ -104,7 +100,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {				
 				ab2 = data.abilities[randomAb2].ability.name;
 				$("#poke22").html(name2);
@@ -121,7 +117,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				m1 = data.moves;	
 				
@@ -141,7 +137,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {				
 				m2 = data.moves;	
 				
@@ -161,7 +157,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				var id1 = data.id;
 				
@@ -178,7 +174,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {				
 				var id2 = data.id;
 				
