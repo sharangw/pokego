@@ -26,6 +26,96 @@ p, h2, h4 {
     display: inline;
 }
 
+.centerize {
+	text-align: center;
+}
+
+.choose {
+	background-color: orange;
+	color: blue;
+	border: none;
+	padding: 10px 10px;
+	font-size: 16px;
+	border-radius: 20px;
+	-webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+.choose:hover {
+	background-color: blue;
+	color: white;
+}
+
+
+.prepare {
+	background-color: yellow;
+	color: maroon;
+	border: none;
+	padding: 10px 12px;
+	font-size: 17px;
+	border-radius: 8px;
+}
+
+.prepare span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.prepare span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.prepare:hover span {
+  padding-right: 25px;
+}
+
+.prepare:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.battle {
+	background-color: blue;
+	color: white;
+	border: none;
+	padding: 15px 32px;
+	font-size: 25px;
+	border-radius: 12px;
+	-webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+}
+
+.battle:hover {
+	background-color: orange;
+	color: blue;
+}
+
+.stop {
+	background-color: red;
+	color: white;
+	border: none;
+	padding: 15px 20px;
+	font-size: 20px;
+	border-radius: 60%;
+}
+
+.stop:hover {
+	background-color: #960000
+}
+
+.stop:active {
+  background-color: #960000;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
 </style>
 </head>
 <body>
@@ -60,123 +150,64 @@ p, h2, h4 {
 
 <br/><br/>
 
-<div class = "container">
-	<input id="input1" type="text">&nbsp;Player 1</input>
-	<button id="submitButton1">I Choose You!</button>
+<div class="centerize">
+	<audio controls autoplay="true">
+		 <source src="sounds/themesong.mp3" type="audio/mpeg">
+	</audio>
 </div>
 
-<div class = "container">
-	<input id="input2" type="text">&nbsp;Player 2</input>
-	<button id="submitButton2">I Choose You!</button>
-</div>
+<br/><br/>
 
-<br/>
-
-<div class ="container">
-	<h4>Player 1 chooses </h4>
-	<h4 id="poke1"></h4>
+<div class = "centerize">
 	
-		<br/></br>
+	<p>Player 1</p>
+	<input id="input1" type="text">&nbsp;</input>
+	<button class="choose" id="submitButton1">I Choose You!</button>
 	
-	<table>
-     	<thead>
-          <tr>
-               <th>&nbsp;Id&nbsp;</th>
-               <th>&nbsp;Ability&nbsp;</th>
-           </tr>
-    	 </thead>
-      <tbody id="tbody1">
-      </tbody>
-	</table>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 	
-	<br/></br>
-	
-	<h4>Player 2 chooses </h4>
-	<h4 id="poke2"></h4>
-	
-	<br/></br>
-	
-	<table>
-      <thead>
-          <tr>
-               <th>&nbsp;Id&nbsp;</th>
-               <th>&nbsp;Ability&nbsp;</th>
-           </tr>
-      </thead>
-     <tbody id="tbody2">
-     </tbody>
-	</table>
+	<p>Player 2</p>
+	<input id="input2" type="text">&nbsp;</input>
+	<button class="choose" id="submitButton2">I Choose You!</button>
 	
 </div>
 
 <br/>
 
-<div class = "container">
-	<input id="randomAb1" type="text">&nbsp;Player 1, choose the ability you want:</input>
-	<button id="abilButton1">GOOO 1</button>
-</div>
-
-<div class = "container">
-	<input id="randomAb2" type="text">&nbsp;Player 2, choose the ability you want:</input>
-	<button id="abilButton2">GOOO 2</button>
-</div>
 
 <br/>
 
-<div class = "container">
-	<p id="poke11"></p>
-	<p>will use</p>	
-	<p id="ab1"></p>
-</div>
-
-<div class = "container">
-	<p id="poke22"></p>
-	<p >will use</p>
-	<p id="ab2"></p>
-</div>
-
-<br/>
-
-<div class = "container">	
-	<button id="battleButton">Battle!!!</button>
+<div class = "centerize">	
+	<button class="prepare" id="prepbattleButton"><span>Prepare for Battle</span></button>
 	
-	<br/><br/>
-	
-	<p>Player 1, your moves:</p>
-	<ul style="list-style-type: none">
-		<li id="m0"></li>
-		<li id="m1"></li>
-		<li id="m2"></li>
-		<li id="m3"></li>
-  	</ul>
-  	
-
-	<p>Player 2, your moves:</p>
-	<ul style="list-style-type: none">
-		<li id="m4"></li>
-		<li id="m5"></li>
-		<li id="m6"></li>
-		<li id="m7"></li>
-	</ul>
+	<br/><br/>	
 	
 	<div id="poke1pic"></div>
 	<h4>versus</h4>
 	<div id="poke2pic"></div>
 	
+	<br/>
+	
+	<button class="battle" id="battleButton">BATTLE!!!</button>	
+	<br/><br/><br/>
+	
+	<b id="move1"></b> <br/><br/>
+	<b id="move2"></b> <br/>
+	
+	<br/><br/>
+	
+	<button class="stop" id="stopButton">End Battle</button>
+	
+	<br/><br/><br/>
+	
+	<h2 id="pokeWinner"></h2> <br/>
+	<h4 id="pokeLoser"></h4>	
 	
 </div>
 	
-<br/>
-
-
-		
-<!-- <div class = "container">
-	<h2 id="pokeWinner"></h2>
-	<h2 onclick="this.innerHTML=' is champion'">Who won?!</h2>
-</div> -->
-
-
-<h1 onclick="changeText(this)">Pokemon</h1>
+	
+<br/><br/><br/><br/><br/><br/>
+<h1 class = "centerize" onclick="changeText(this)">Pokemon</h1>
 
 <script>
 function changeText(id) {
