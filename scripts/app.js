@@ -35,7 +35,7 @@ $(document).ready(function() { // called after DOM is done being built
 		// GET NAME
 		$.ajax({
 			method: "GET",
-			url: "httpss://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {	
 				name2 = data.name;
 				console.log(name2)
