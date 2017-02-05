@@ -6,8 +6,11 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <!-- <link href="styles/table.css" rel="stylesheet"/> -->
 <style>
-body { background: #04c966;
+
+body { 
+	background: #04c966;
 }
+
 table {
     border-collapse: collapse;    
     display: inline-table;
@@ -20,7 +23,9 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 
-tr:hover{background-color:#efc507}
+tr:hover {
+	background-color:#efc507
+}
 
 p, h2, h4 {
     display: inline;
@@ -28,6 +33,30 @@ p, h2, h4 {
 
 .centerize {
 	text-align: center;
+}
+
+.picOne {
+	position: absolute;
+	top: 350px;
+	left: 450px;
+}
+
+.picTwo {
+	position: absolute;
+	top: 350px;
+	right: 450px;
+}
+
+.picJessie {
+	position: absolute;
+	top: 350px;
+	left: 240px;
+}
+
+.picJames {
+	position: absolute;
+	top: 350px;
+	right: 230px;
 }
 
 .choose {
@@ -45,7 +74,6 @@ p, h2, h4 {
 	background-color: blue;
 	color: white;
 }
-
 
 .prepare {
 	background-color: yellow;
@@ -151,7 +179,7 @@ p, h2, h4 {
 <br/><br/>
 
 <div class="centerize">
-	<audio controls autoplay="true">
+	<audio id="theme" controls autoplay="true">
 		 <source src="sounds/themesong.mp3" type="audio/mpeg">
 	</audio>
 </div>
@@ -161,37 +189,44 @@ p, h2, h4 {
 <div class = "centerize">
 	
 	<p>Player 1</p>
-	<input id="input1" type="text">&nbsp;</input>
+	<input id="input1" type="text" size="13">&nbsp;</input>
 	<button class="choose" id="submitButton1">I Choose You!</button>
 	
-	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	&nbsp;&nbsp;&nbsp;
 	
 	<p>Player 2</p>
-	<input id="input2" type="text">&nbsp;</input>
+	<input id="input2" type="text" size="13">&nbsp;</input>
 	<button class="choose" id="submitButton2">I Choose You!</button>
+	
+	<br/><br/></br>
+	<button class="prepare" id="prepbattleButton"><span>Prepare for Battle</span></button>
 	
 </div>
 
-<br/>
+<br/><br/><br/>
+	
+	<div id="jessie" class="picJessie"></div>
+	
+	<div id="poke1pic" class="picOne"></div>
+	
+	<div align="center">
+		<h4>versus</h4>
+	</div>
+	
+	<div id="james" class="picJames"></div>
+	
+	<div id="poke2pic" class="picTwo"></div>	
+	
 
 
-<br/>
-
-<div class = "centerize">	
-	<button class="prepare" id="prepbattleButton"><span>Prepare for Battle</span></button>
+<br/><br/><br/>
 	
-	<br/><br/>	
-	
-	<div id="poke1pic"></div>
-	<h4>versus</h4>
-	<div id="poke2pic"></div>
-	
-	<br/>
-	
+<div class="centerize">	
 	<button class="battle" id="battleButton">BATTLE!!!</button>	
 	<br/><br/><br/>
 	
-	<b id="move1"></b> <br/><br/>
+	<b id="move1"></b> <br/>
+	<b id="moveTR"></b><br/>
 	<b id="move2"></b> <br/>
 	
 	<br/><br/>
@@ -207,12 +242,23 @@ p, h2, h4 {
 	
 	
 <br/><br/><br/><br/><br/><br/>
-<h1 class = "centerize" onclick="changeText(this)">Pokemon</h1>
+<div class="centerize">
+	<h1 onclick="changeText(this)">Gotta</h1>
+	<audio id="rocketMotto" controls>
+		 <source src="sounds/teamr.wav" type="audio/wav">
+	</audio>
+</div>
 
 <script>
+
+var audioId = document.getElementById("theme");
+audioId.volume = 0.09;
+
+
 function changeText(id) {
-    id.innerHTML = "Go";
+    id.innerHTML = "Catch'em All";
 }
+
 </script>
 
 </body>
