@@ -23,6 +23,9 @@ $(document).ready(function() { // called after DOM is done being built
 				console.log(name1);
 				//$("#poke1").html(name1);				
 				
+			},
+			error: function() {
+				$("#error").html("That is not a pokemon! Please choose again");
 			}
 		});	
 		
@@ -40,6 +43,9 @@ $(document).ready(function() { // called after DOM is done being built
 				name2 = data.name;
 				console.log(name2)
 				//$("#poke2").html(name2);
+			},
+			error: function() {
+				$("#error").html("That is not a pokemon! Please choose again");
 			}
 		});	
 		
