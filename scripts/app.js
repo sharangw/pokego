@@ -21,8 +21,7 @@ $(document).ready(function() { // called after DOM is done being built
 			success: function(data) {				
 				name1 = data.name;
 				console.log(name1);
-				//$("#poke1").html(name1);				
-				
+				//$("#poke1").html(name1);					
 			},
 			error: function() {
 				$("#error").html("That is not a pokemon! Please choose again");
@@ -292,8 +291,10 @@ $(document).ready(function() { // called after DOM is done being built
     
     } // end getStats
     
-    
     function calculateVictor(expA, expB, statA, statB, chanceA, chanceB) {
+    	
+    	var Capname1 = capFirstLetter(name1);
+    	var Capname2 = capFirstLetter(name2);
     	
     	var totalPoints1 = 0, totalPoints2 = 0;    
     	
@@ -305,13 +306,13 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	if(totalPoints1 > totalPoints2) {
 			
-			$("#pokeWinner").html(name1+ ": [" + totalPoints1 + " points] is the winner!");
-			$("#pokeLoser").html(name2+ ": [" + totalPoints2 + " points]");
+			$("#pokeWinner").html(Capname1+ ": [" + totalPoints1 + " points] is the winner!");
+			$("#pokeLoser").html(Capname2+ ": [" + totalPoints2 + " points]");
 			
 		} else if (totalPoints1 < totalPoints2) {
 		
-			$("#pokeWinner").html(name2+ ": [" + totalPoints2 + " points] is the winner!");
-			$("#pokeLoser").html(name1+ ": [" + totalPoints1 + " points]");
+			$("#pokeWinner").html(Capname2+ ": [" + totalPoints2 + " points] is the winner!");
+			$("#pokeLoser").html(Capname1+ ": [" + totalPoints1 + " points]");
 		
 		} else {
 			
@@ -330,9 +331,13 @@ $(document).ready(function() { // called after DOM is done being built
     	} else {
     		
     		$("#pokeWinner").html("Player 1, you lost your pokemon to Team Rocket!");
-    	}
+    	}     	
+    }
     
+    function capFirstLetter(name) {
     	
+    	var Capname =  name.charAt(0).toUpperCase() + name.slice(1);
+    	return Capname;
     }
 	
 }); // end ready function
