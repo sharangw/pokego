@@ -1,31 +1,13 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Poke Go</title>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-<!-- <link href="styles/table.css" rel="stylesheet"/> -->
 <style>
 
 body { 
 	background: #04c966;
-}
-
-table {
-    border-collapse: collapse;    
-    display: inline-table;
-}
-
-th, td {
-    padding: 5px;
-    text-align: left;
-    outline: 2px solid blue;
-    border-bottom: 1px solid #ddd;
-}
-
-tr:hover {
-	background-color:#efc507
 }
 
 p, h2, h4 {
@@ -38,13 +20,13 @@ p, h2, h4 {
 
 .picOne {
 	position: absolute;
-	top: 50%;
+	top: 60%;
 	left: 35%;
 }
 
 .picTwo {
 	position: absolute;
-	top: 50%;
+	top: 60%;
 	right: 35%;	
 }
 
@@ -146,7 +128,6 @@ p, h2, h4 {
 }
 
 </style>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 
@@ -159,7 +140,7 @@ p, h2, h4 {
 <!-- Custom JavaScript -->
 <script type="text/javascript" src="scripts/app.js"></script>
 
-<marquee behavior="scroll" direction="left" width="100%" bgcolor="#29bcf2">The Pocket Monsters
+<marquee behavior="scroll" direction="left" width="100%" bgcolor="#29bcf2">
 	
 	<img src="model/19.png">	
 	<img src="model/1.png">
@@ -173,28 +154,55 @@ p, h2, h4 {
 	<img src="model/35.png">	
 	<img src="model/16.png">
 	<img src="model/58.png">
-	<img src="model/134.png">
+	<img src="model/134.png">	
 	<img src="model/107.png">
 	<img src="model/73.png">	
 	<img src="model/94.png">
 	<img src="model/76.png">	
 	<img src="model/9.png">
 	<img src="model/6.png">
+	<img src="model/130.png">
 	<img src="model/150.png">
 	
 </marquee> 
 
-<br/><br/>
-
+  <div style="background-color:maroon; height:1200px; width:110px; float:left;">
+     <marquee behavior="scroll" direction="up">
+     	<img src="model/26.png">
+     	<img src="model/126.png">
+     	<img src="model/690.png">
+     	<img src="model/259.png">
+     	<img src="model/400.png">
+     	<img src="model/108.png">
+     	<img src="model/372.png">
+     	<img src="model/42.png">
+     	<img src="model/195.png">
+     </marquee>
+  </div>
+  
+  <div style="background-color:maroon; height:1200px; width:110px; float:right;">
+     <marquee behavior="scroll" direction="down">
+     	<img src="model/62.png">
+     	<img src="model/97.png">
+     	<img src="model/33.png">
+     	<img src="model/701.png">
+     	<img src="model/500.png">
+     	<img src="model/358.png">
+     	<img src="model/441.png">
+     	<img src="model/284.png">
+     	<img src="model/649.png">
+     </marquee>
+  </div>
+  
 <div class="centerize">
 	<audio id="theme" autoplay="true" loop="true">
 		 <source src="sounds/themesong.mp3" type="audio/mpeg">
 	</audio>
 </div>
 
-<br/>
-
 <div class = "centerize">
+
+	<h1>The Pocket Monsters</h1> <br/><br/>
 	
 	<p>Player 1</p>
 	<input id="input1" type="text" size="13">&nbsp;</input>
@@ -234,6 +242,8 @@ p, h2, h4 {
 	<div id="james" class="picJames"></div>
 	
 	<div id="poke2pic" class="picTwo"></div>	
+	
+
 
 <br/><br/><br/>
 	
@@ -259,20 +269,25 @@ p, h2, h4 {
 	
 <br/><br/><br/><br/><br/><br/>
 <div class="centerize">
-	<h1 onclick="changeText(this)">Gotta</h1>
+	<h3 onclick="changeText(this)">Gotta</h3>
 	<audio id="rocketMotto" >
 		 <source src="sounds/teamr.wav" type="audio/wav">
 	</audio>
 </div>
 
+<div style="float:right">
+	<a href="https://github.com/sharangw/pokego" class="btn btn-default">Source Code</a>
+	<a href="https://pokeapi.co/" class="btn btn-default">Pokemon Data</a>
+</div>
+
 <script>
 
 var audioId = document.getElementById("theme");
-audioId.volume = 0.09;
+audioId.volume = 0.07;
 
 
 function changeText(id) {
-    id.innerHTML = "Catch'em All";
+    id.innerHTML = "Catch'em All!";
 }
 
 </script>
