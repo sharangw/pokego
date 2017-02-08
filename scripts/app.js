@@ -13,7 +13,7 @@ $(document).ready(function() { // called after DOM is done being built
 		// GET NAME
 		$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				name1 = data.name;
 				console.log(name1);
@@ -33,7 +33,7 @@ $(document).ready(function() { // called after DOM is done being built
 		// GET NAME
 		$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {	
 				name2 = data.name;
 				console.log(name2)
@@ -54,7 +54,7 @@ $(document).ready(function() { // called after DOM is done being built
     	// GET IMAGE
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				var id1 = data.id;
 				
@@ -72,7 +72,7 @@ $(document).ready(function() { // called after DOM is done being built
     	// GET IMAGE
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {				
 				var id2 = data.id;
 				
@@ -185,7 +185,7 @@ $(document).ready(function() { // called after DOM is done being built
      	// GET MOVE
      	$.ajax({
  			method: "GET",
- 			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+ 			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
  			success: function(data) {				
  				
  				var m1 = data.moves; 				
@@ -222,7 +222,7 @@ $(document).ready(function() { // called after DOM is done being built
     	// GET MOVE
     	$.ajax({
 			method: "GET",
-			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {				
 				
 				var m2 = data.moves; 				
@@ -269,7 +269,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
     		method: "GET",
-    		url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+    		url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
     		success: function(data) {
     			
     			exp1 = data.base_experience;
@@ -280,7 +280,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	$.ajax({
     		method: "GET",
-    		url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+    		url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
     		success: function(data) {
     			
     			exp2 = data.base_experience;			
