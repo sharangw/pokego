@@ -20,25 +20,25 @@ p, h2, h4 {
 
 .picOne {
 	position: absolute;
-	top: 60%;
-	left: 35%;
+	top: 73%;
+	left: 32%;
 }
 
 .picTwo {
 	position: absolute;
-	top: 60%;
-	right: 35%;	
+	top: 73%;
+	right: 32%;	
 }
 
 .picJessie {
 	position: absolute;
-	top: 51%;
+	top: 62%;
 	left: 20%;
 }
 
 .picJames {
 	position: absolute;
-	top: 50%;
+	top: 61%;
 	right: 20%;
 }
 
@@ -148,9 +148,9 @@ p, h2, h4 {
 	<img src="model/7.png">
 	<img src="model/100.png">	
 	<img src="model/10.png">	
-	<img src="model/25.png">
-	<img src="model/52.png">
+	<img src="model/25.png">	
 	<img src="model/54.png">
+	<img src="model/53.png">
 	<img src="model/35.png">	
 	<img src="model/16.png">
 	<img src="model/58.png">
@@ -202,15 +202,17 @@ p, h2, h4 {
 
 <div class = "centerize">
 
-	<h1>The Pocket Monsters</h1> <br/><br/>
+	<h1>The Pocket Monsters</h1> <br/>
 	
-	<p>Player 1</p>
+	<h3>Welcome Pokemon Trainers!</h3> <br/><br/>
+	
+	<p>Trainer 1</p>
 	<input id="input1" type="text" size="13">&nbsp;</input>
 	<button class="choose" id="submitButton1">I Choose You!</button>
 		
 	&nbsp;&nbsp;&nbsp;
 	
-	<p>Player 2</p>
+	<p>Trainer 2</p>
 	<input id="input2" type="text" size="13">&nbsp;</input>
 	<button class="choose" id="submitButton2">I Choose You!</button>
 	
@@ -236,6 +238,7 @@ p, h2, h4 {
 	<div id="poke1pic" class="picOne"></div>
 	
 	<div align="center">
+		<div id="meowth"></div>
 		<h4>versus</h4>
 	</div>
 	
@@ -262,7 +265,9 @@ p, h2, h4 {
 	<br/><br/><br/>
 	
 	<h2 id="pokeWinner"></h2> <br/>
-	<h4 id="pokeLoser"></h4>	
+	<h4 id="pokeLoser"></h4> <br/><br/><br/>
+	
+	<button class="choose" id="refreshButton">Play Again</button>	
 	
 </div>
 	
