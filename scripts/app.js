@@ -1,14 +1,10 @@
-/**
- * 
- */
-
 $(document).ready(function() { // called after DOM is done being built
 	
 	var p1 = 0, p2 = 0;
 	var name1 = "", name2 = "";	
 	var moves1 = 0, moves2 = 0, timeout = 0; 
 	var chance1 = 0, chance2 = 0;
-	var trocket = false, flag1 = false;
+	var trocket = false;
 		
 	$("#submitButton1").click(function() {
 		
@@ -17,7 +13,7 @@ $(document).ready(function() { // called after DOM is done being built
 		// GET NAME
 		$.ajax({
 			method: "GET",
-			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				name1 = data.name;
 				console.log(name1);
@@ -37,7 +33,7 @@ $(document).ready(function() { // called after DOM is done being built
 		// GET NAME
 		$.ajax({
 			method: "GET",
-			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {	
 				name2 = data.name;
 				console.log(name2)
@@ -52,10 +48,13 @@ $(document).ready(function() { // called after DOM is done being built
 		
     $("#prepbattleButton").click(function() {
     	
+    	var n = randomNumberTo100();
+    	console.log(n);
+    	
     	// GET IMAGE
     	$.ajax({
 			method: "GET",
-			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
 			success: function(data) {				
 				var id1 = data.id;
 				
@@ -73,7 +72,7 @@ $(document).ready(function() { // called after DOM is done being built
     	// GET IMAGE
     	$.ajax({
 			method: "GET",
-			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {				
 				var id2 = data.id;
 				
@@ -90,7 +89,7 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	console.log("name1: "+name1 + " name2: "+ name2);
     	
-    	if (name1 === "meowth" || name2 === "meowth" || p1 === "meowth" || p1 === 52 || p2 === "meowth" || p2 === 52) {
+    	if (n % 5 === 0) {
     		
     		trocket = true;
     		
@@ -118,38 +117,29 @@ $(document).ready(function() { // called after DOM is done being built
 			};
 		
 		img2.src = 'model/james.png';
+		
+		var img3 = new Image();
+		var div3 = document.getElementById('meowth');
+	 	
+		img3.onload = function() {
+			  div3.appendChild(img3);
+			};
+		
+		img3.src = 'model/52.png';
     	
     }
     
-    $("#battleButton").click(function() {     	
-    	
-    	if(name1 === "meowth") {
-    		
-    		flag1 = true;
-    	}    		
+    $("#battleButton").click(function() {     	  		
     	
     	if (trocket === true) {
-    		
-    		if (flag1 === true) {
     			
-    			$("#moveTR").html("Oh no! Team Rocket steals " + name2 + " and flees..");
-    			
-    			var gotta = document.getElementById("theme");
-    			gotta.pause();
-    			
-    			var denounce = document.getElementById("rocketMotto");
-    			denounce.play();
-    			
-    		} else {
-    			
-    			$("#moveTR").html("Oh no! Team Rocket steals " + name1 + " and flees..");
-    			
-    			var gotta = document.getElementById("theme");
-    			gotta.pause();
-    			
-    			var denounce = document.getElementById("rocketMotto");
-    			denounce.play();
-    		}    		
+    		$("#moveTR").html("Oh no! Team Rocket steals " + name1 + " and " + name2 + " and flees..");
+			
+			var gotta = document.getElementById("theme");
+			gotta.pause();
+			
+			var denounce = document.getElementById("rocketMotto");
+			denounce.play();
     		   		
     	} else {
     		
@@ -162,33 +152,49 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	moves1 = setInterval(function(){ 
     		printAttackOne()
-    		}, 4000);
+    		}, 3000);
     	   	
     	timeout = setTimeout(attackTwoTimeout, 2000);
     	
     }
 		
+    function randomNumberTo5() {
+    	
+    	var randNum = Math.floor(Math.random() * 5);
+		return randNum;
+    }
+    
     function randomNumberTo10() {
     	
     	var randNum = Math.floor(Math.random() * 10);
 		return randNum;
     }
     
+    function randomNumberTo100() {
+    	
+    	var randNum = Math.floor(Math.random() * 100);
+		return randNum;
+    }
+
     function printAttackOne() {
     	
-    	 var t = randomNumberTo10();    
+    	 var ten = randomNumberTo10(); 
+    	 var five = randomNumberTo5(); 
     	 var move1 = "";
      	
      	// GET MOVE
      	$.ajax({
  			method: "GET",
- 			url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+ 			url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
  			success: function(data) {				
  				
  				var m1 = data.moves; 				
- 				var movename1 = m1[t].move.name;
+ 				var movename1 = m1[ten].move.name;
  				
- 				var points1 = 15*t;
+ 				var mstat1 = data.stats[five].base_stat;
+ 				console.log(mstat1);
+ 				
+ 				var points1 = mstat1;
  				chance1 += points1;
  				
  				move1 = name1 + " uses " + movename1 + " move:" + " +" + points1 + " points.";
@@ -204,24 +210,28 @@ $(document).ready(function() { // called after DOM is done being built
     	
     	moves2 = setInterval(function(){ 
     		printAttackTwo()
-		}, 4000);
+		}, 3000);
     }
     
     function printAttackTwo() {
     	
-   	 var t = randomNumberTo10();    
+   	 var ten = randomNumberTo10();    
+   	 var five = randomNumberTo5();
    	 var move2 = "";
     	
     	// GET MOVE
     	$.ajax({
 			method: "GET",
-			url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+			url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
 			success: function(data) {				
 				
 				var m2 = data.moves; 				
-				var movename2 = m2[t].move.name;
+				var movename2 = m2[ten].move.name;
 				
-				var points2 = 15*t;
+				var mstat2 = data.stats[five].base_stat;
+				console.log(mstat2);
+				
+				var points2 = mstat2;
 				chance2 += points2;
 				
 				move2 = name2 + " uses " + movename2 + " move" + " +" + points2 + " points.";
@@ -247,62 +257,57 @@ $(document).ready(function() { // called after DOM is done being built
     		
     	} else {
     		
-    		getStats();
+    		getExp();
     	}   	  	
     	
     	
     }); //end stopButton click
     
-    function getStats() {
+    function getExp() {
     	
-    	var exp1 = 0, exp2 = 0, stat1 = 0, stat2 = 0;	
+    	var exp1 = 0, exp2 = 0;	
     	
     	$.ajax({
     		method: "GET",
-    		url: "https://pokeapi.co/api/v2/pokemon/" + p1 + "/",
+    		url: "http://pokeapi.co/api/v2/pokemon/" + p1 + "/",
     		success: function(data) {
     			
     			exp1 = data.base_experience;
     			
-    			for (i=0; i <= 5; i++) {
-    				stat1 += data.stats[i].base_stat;
-    				
-    			}    			
     		}
     		
     	});
     	
     	$.ajax({
     		method: "GET",
-    		url: "https://pokeapi.co/api/v2/pokemon/" + p2 + "/",
+    		url: "http://pokeapi.co/api/v2/pokemon/" + p2 + "/",
     		success: function(data) {
     			
-    			exp2 = data.base_experience;
+    			exp2 = data.base_experience;			
     			
-    			for (i=0; i <= 5; i++) {
-    				stat2 += data.stats[i].base_stat;
-    			}    			
+    			calculateVictor(exp1, exp2, chance1, chance2);
     			
-    			calculateVictor(exp1, exp2, stat1, stat2, chance1, chance2);
-  
     		}
     		
     	}); 
     
     } // end getStats
     
-    function calculateVictor(expA, expB, statA, statB, chanceA, chanceB) {
+    function calculateVictor(expA, expB, chanceA, chanceB) {
     	
     	var Capname1 = capFirstLetter(name1);
     	var Capname2 = capFirstLetter(name2);
     	
     	var totalPoints1 = 0, totalPoints2 = 0;    
     	
-    	var anotherRandom1 = randomNumberTo10();    	
-    	var anotherRandom2 = randomNumberTo10();    
+    	var random1 = randomNumberTo10();  
+    	console.log(random1);
     	
-    	totalPoints1 = (6*expA) + (4*statA) + (anotherRandom1*chanceA);   	
-    	totalPoints2 = (6*expB) + (4*statB) + (anotherRandom2*chanceB);    	
+    	var random2 = randomNumberTo10();   
+    	console.log(random2);
+    	
+    	totalPoints1 = (7*expA) + (random1*chanceA);   	
+    	totalPoints2 = (7*expB) + (random2*chanceB);    	
     	
     	if(totalPoints1 > totalPoints2) {
 			
@@ -323,15 +328,8 @@ $(document).ready(function() { // called after DOM is done being built
     } // end calculateVictor
     
     function rocketVictory() {
-    
-    	if (flag1 === true) {
-    		
-    		$("#pokeWinner").html("Player 2, you lost your pokemon to Team Rocket!");
-    	
-    	} else {
-    		
-    		$("#pokeWinner").html("Player 1, you lost your pokemon to Team Rocket!");
-    	}     	
+   
+    	$("#pokeWinner").html("Both trainers: you lost your pokemons to Team Rocket!"); 	
     }
     
     function capFirstLetter(name) {
@@ -339,5 +337,12 @@ $(document).ready(function() { // called after DOM is done being built
     	var Capname =  name.charAt(0).toUpperCase() + name.slice(1);
     	return Capname;
     }
+    
+    $("#refreshButton").click( function() {
+    	
+    	location.reload();
+    	
+    }); // end refreshButton
+    
 	
 }); // end ready function
