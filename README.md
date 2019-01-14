@@ -9,6 +9,7 @@
 
 ## The Game
 * Pokego presents users the opportunity to battle two pokemons of their choice where the victor is determined through a combination of statistics such as base experience, total base stats, and an element of randomness.
+* The game is available to play here: https://sharangw.github.io/pokego/
 
 
 
